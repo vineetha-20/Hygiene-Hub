@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HygieneHub</title>
+    <link rel="stylesheet" href="Hub.css">
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-sA+MqF4g6OqImIPPHqmosZbLVf0t6SRTiBGap5WeURw="
+  crossorigin="">
+</head>
+<body>
+    <header>
+  <nav class="container" aria-label="Primary Navigation">
+    <div class="logo" tabindex="0">HygieneHub</div>
+    <ul class="nav-links" role="list">
+      <li><a href="#home" tabindex="0">Home</a></li>
+      <li><a href="#report" tabindex="0">Report an Area</a></li>
+      <li><a href="#find-clean-areas" tabindex="0">Find Clean Areas</a></li>
+      <li><a href="#find-water-resources" tabindex="0">Find Water Resources</a></li>
+    </ul>
+  </nav>
+</header>
+<main style="position: relative; height: 100vh;">
+  <section class="hero" aria-label="AquaConnect hero section">
+    <div>
+      <div class="hero-content" style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: var(--border-radius); max-width: 800px; margin: 0 auto;">
+        <h1>Empowering Communities to Access Clean Water & Sanitation</h1>
+        <p>Report dirty or unsanitary areas, find clean public spaces, and locate water resources in your community — all in one place.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="cta-button" onclick="location.hash='report';">Report Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="report" aria-labelledby="report-title">
+    <h2 id="report-title">Report Dirty or Unsanitary Areas</h2>
+    <form id="reportForm" aria-describedby="report-desc" onsubmit="return validateForm()">
+      <p id="report-desc" style="max-width:600px; margin: 0 auto 1.5rem; color: var(--color-text); font-size:1.1rem;">
+        Help improve sanitation by reporting areas lacking cleanliness or facilities. Provide location details and any helpful info.
+      </p>
+      <label for="location">Location *</label>
+      <input type="text" id="location" name="location" placeholder="Enter area or address" autocomplete="off" required />
+
+      <label for="type">Issue Type *</label>
+      <select id="type" name="type" required>
+        <option value="" disabled selected>Select an issue type</option>
+        <option value="no_sanitation">No Sanitation Facilities</option>
+        <option value="dirty_area">Dirty Area</option>
+        <option value="water_contamination">Water Contamination</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" placeholder="Provide additional details (optional)"></textarea>
+
+      <button type="submit">Submit Report</button>
+    </form>
+  </section>
+
+  <section id="find-clean-areas" aria-labelledby="clean-areas-title">
+    <h2 id="clean-areas-title">Find Clean Public Areas & Sanitation Facilities - Gajuwaka, Visakhapatnam</h2>
+    <p style="max-width:600px; margin: 0 auto 2rem; color: var(--color-text); font-size: 1.1rem;">
+      Explore the map below to locate clean public areas and accessible sanitation facilities in Gajuwaka, Visakhapatnam.
+    </p>
+    <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.1099388687626!2d83.19160297120396!3d17.685553343606152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39431389e6973f%3A0x92d9c20395498468!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1749568411703!5m2!1sen!2sin" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+   </section>
+
+   <section id="find-water-resources" aria-labelledby="water-resources-title">
+    <h2 id="water-resources-title">Locate Clean Water Resources</h2>
+    <p style="max-width:600px; margin: 0 auto 2rem; text-align:center; color: var(--color-text); font-size: 1.1rem;">
+      Find safe water sources in Gajuwaka, Visakhapatnam:
+    </p>
+    <div id="waterResources" class="feature-grid" aria-live="polite" aria-atomic="true" style="max-width: 700px; margin-left:auto; margin-right:auto;">
+      <div class="card water-resource">
+        <h3>Datta Sai Nagar</h3>
+        <p>Near Baba Temple, clean water source available 24/7 with proper filtration system.</p>
+      </div>
+      <div class="card water-resource">
+        <h3>Kunchamamba Colony</h3>
+        <p>Public water tap with regular quality checks by municipal authorities.</p>
+      </div>
+      <div class="card water-resource">
+        <h3>Drivers Colony</h3>
+        <p>Community water purification plant providing safe drinking water.</p>
+      </div>
+      <div class="card water-resource">
+        <h3>Chaitanya Nagar</h3>
+        <p>RO water kiosk with affordable rates and certified water quality.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p> &copy; 2025 AquaConnect. All rights reserved.</p>
+</footer>
+
+<script src="Hub.js"></script>
+</body>
+</html>
